@@ -1,8 +1,8 @@
-namespace notes_sync_test.Model
+namespace notes_sync.Model
 {
 	public class ProcessModel
 	{
-		public Command { get;set; }
-		public Arguments { get;set; }
+		public string Command { get;set; }
+		public string Arguments { get;set; }
 	}	
 }

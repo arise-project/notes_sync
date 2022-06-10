@@ -1,6 +1,6 @@
-namespace notes_sync_test.Model
+namespace notes_sync.Model
 {
-	public class TextFolder : Folder
+	public class TextFolder : FolderModel
 	{
 	}	
 }

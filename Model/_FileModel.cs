@@ -1,10 +1,15 @@
 using System.IO;
 
-namespace note_sync.Model
+namespace notes_sync.Model
 {
 	//M109A3
 	public class FileModel
 	{
+		public FileModel()
+		{
+			
+		}
+		
 		public FileModel(string fullName, string folder, string text)
 		{
 			Name = Path.GetFileNameWithoutExtension(fullName);

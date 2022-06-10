@@ -1,13 +1,13 @@
-using notes_sync_test.Model;
+using notes_sync.Model;
  
-namespace notes_sync_test.Config
+namespace notes_sync.Config
 {
 	//Zuzana 2
 	public class AppConfiguration
 	{
-		public string MountpointRoot { get; set; }
-		ProcessModel MountCommand { get; set; }
-		ProcessModel CapacityCommand { get; set; }
-		ProcessModel ScriptCommand { get; set; }
+		public string MountPointRoot { get; set; }
+		public ProcessModel MountCommand { get; set; }
+		public ProcessModel CapacityCommand { get; set; }
+		public ProcessModel ScriptCommand { get; set; }
 	}
 }

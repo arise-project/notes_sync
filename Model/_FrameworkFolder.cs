@@ -1,4 +1,6 @@
-namespace notes_sync_test.Model
+using System.Collections.Generic;
+
+namespace notes_sync.Model
 {
 	public class FrameworkFolder : FolderModel
 	{

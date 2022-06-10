@@ -5,6 +5,23 @@ folder_research.txt is also copy ? | > sections from folder notes
 --------------------
 Soft is top package
 --------------------
+simplisity like a knot something is splitted, something is joined to ressilence
+--------------------
+arch is full group, but it is not simple to produce simple and optimap solution in full group.
+ressistance is group of simple fixes for selected arch solution.
+circuted solution can be made with group of simple fixes.
+arch is seek on optimum for creterias that are in description of solution
+--------------------
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/mcedit
+  3. /usr/bin/vim.tiny
+  4. /bin/ed
+
+Choose 1-4 [1]: 1
+--------------------
+fix of errors of subproblem solve is second recursion call 
+--------------------
 ==========
 19. correct default files names with structure research -> go_research
 ==========

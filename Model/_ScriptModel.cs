@@ -1,10 +1,12 @@
-namespace notes_sync_test.Model
+using notes_sync.Config;
+
+namespace notes_sync.Model
 {
-	public class ScritModel : ProcessModel
+	public class ScriptModel : ProcessModel
 	{
 		public void Init(AppConfiguration ac)
 		{
-			Command = ac.ScriptCommand;
+			Command = ac.ScriptCommand.Command;
 		}
 	}	
 }

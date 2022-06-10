@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/galliumos/29C7-3439/proj/notes_synk/notes_synk.csproj",
-      "projectName": "notes_synk",
-      "projectPath": "/media/galliumos/29C7-3439/proj/notes_synk/notes_synk.csproj",
+      "projectUniqueName": "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj",
+      "projectName": "notes_sync",
+      "projectPath": "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj",
       "packagesPath": "/home/galliumos/.nuget/packages/",
-      "outputPath": "/media/galliumos/29C7-3439/proj/notes_synk/obj/",
+      "outputPath": "/media/galliumos/Ventoy/proj/notes_sync/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/galliumos/.nuget/NuGet/NuGet.Config"
