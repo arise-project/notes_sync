@@ -1,12 +1,8 @@
-using notes_sync_test.Services.Interface;
+using notes_sync_test.Services.Sd.Interface;
 
-namespace notes_sync_test.Services
+namespace notes_sync_test.Services.Sd
 {
 	public class FolderMerger : IFolderMerger
 	{
-		bool Create(TextFolder tf);
-		bool Create(NoteFolder nf);
-		bool Delete(TextFolder tf);
-		bool Delete(NoteFolder nf);
 	}	
 }

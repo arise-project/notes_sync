@@ -1,10 +1,8 @@
-using notes_sync_test.Services.Interface;
+using notes_sync_test.Services.Structure.Interface;
 
-namespace notes_sync_test.Services
+namespace notes_sync_test.Services.Structure
 {
 	public class NoteParagraphManager : INoteParagraphManager
 	{
-		List<Paragraph> ReadAll(TextFile tf);
-		List<Paragraph> ReadAll(NoteFile nf);
 	}	
 }

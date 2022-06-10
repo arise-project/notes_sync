@@ -1,14 +1,8 @@
-using notes_sync_test.Services.Interface;
+using notes_sync_test.Services.Structure.Interface;
 
-namespace notes_sync_test.Services
+namespace notes_sync_test.Services.Structure
 {
 	public class StructureMerger : IStructureMerger
 	{
-		bool Init(SdFolder sf, Structure s);
-		bool Update(SdFolder sf);
-		bool Erase(SdFolder sf);
-		bool Archive(SdFolder sf);
-		bool Compress(SdFolder sf);
-		bool RunScenario(Scenario s, SdFolder sf);
 	}	
 }

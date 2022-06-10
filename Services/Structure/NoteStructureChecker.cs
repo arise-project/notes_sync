@@ -1,10 +1,8 @@
-using notes_sync_test.Services.Interface;
+using notes_sync_test.Services.Structure.Interface;
 
-namespace notes_sync_test.Services
+namespace notes_sync_test.Services.Structure
 {
 	public class NoteStructureChecker : INoteStructureChecker
 	{
-		bool Verify(TextFile tf);
-		bool Verify(NoteFile tf);
 	}	
 }

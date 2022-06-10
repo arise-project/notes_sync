@@ -1,6 +1,6 @@
-uisng System.Collections.Generic;
+using System.Collections.Generic;
 
-namespace notes_sync_test.Services.Interface
+namespace notes_sync_test.Services.Backup.Interface
 {
 	public interface INoteBackup
 	{

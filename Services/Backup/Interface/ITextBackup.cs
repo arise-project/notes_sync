@@ -1,4 +1,4 @@
-namespace notes_sync_test.Services.Interface
+namespace notes_sync_test.Services.Backup.Interface
 {
 	public interface ITextBackup
 	{

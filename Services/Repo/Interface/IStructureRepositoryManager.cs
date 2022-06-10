@@ -1,4 +1,4 @@
-namespace notes_sync_test.Services.Interface
+namespace notes_sync_test.Services.Repo.Interface
 {
 	public interface IStructureRepositoryManager
 	{

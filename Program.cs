@@ -7,6 +7,10 @@ namespace notes_synk
     {
         static void Main(string[] args)
         {
+        	//NYT
+        	//PZRK Perun
+        	//FH70
+        	//Igla
             Console.WriteLine("Hello World!");
         }
     }
