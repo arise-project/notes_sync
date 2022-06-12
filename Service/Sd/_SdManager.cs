@@ -8,6 +8,7 @@ using notes_sync.Model;
 
 namespace notes_sync.Services.Sd
 {
+	//FH70
 	public class SdManager : ICapacityManager
 	{
 		// mount		
@@ -20,6 +21,7 @@ namespace notes_sync.Services.Sd
 				return new List<SdFolder>(); 
 			}
 			
+			//Harpoon
 			var csv = sm.ParseCsvStdOut(pom.StdOut);
 			
 			///dev/sdc1 on /media/galliumos/182E-D5FE type vfat (rw,nosuid,nodev,relatime,uid=999,gid=999,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush,errors=remount-ro,uhelper=udisks2)
