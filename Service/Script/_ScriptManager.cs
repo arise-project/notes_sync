@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using notes_sync.Services.Script.Interface;
 using notes_sync.Config;
@@ -20,7 +21,7 @@ namespace notes_sync.Services.Script
 		public bool Run(ScriptModel sm)
 		{
 			sm.Init(ac);
-			var pom = pr.Run();
+			var pom = pr.Run(sm);
 			return pom.Ok;
 		}
 		

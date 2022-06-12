@@ -26,7 +26,7 @@ namespace notes_sync.Services.Sd
 			
 			///dev/sdc1 on /media/galliumos/182E-D5FE type vfat (rw,nosuid,nodev,relatime,uid=999,gid=999,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush,errors=remount-ro,uhelper=udisks2)
 
-			return csv.Where(l => l.Skip(1).FirstOrDefault() == "on" && l.Skip(2).FirstOrDefault()?.StartWith(ac.MountPointRoot) == true)
+			return csv.Where(l => l.Skip(1).FirstOrDefault() == "on" && l.Skip(2).FirstOrDefault()?.IndexOf(ac.MountPointRoot) == 0)
 				.Select(l => new SdFolder { Root = l.Skip(2).First() })
 				.ToList();
 		}

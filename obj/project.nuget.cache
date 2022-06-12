@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6S62Muy96Rzc7koJl12w08h/oiHUAE81+hQlt3dmTc8Gj41dVW0BelUQrqiOWmEomv4hyMGISnNmlFysHKt4ZQ==",
+  "dgSpecHash": "DZKE4TFfmPgn+bPZ0tFkKqmXthNmUHP42kd69pFsHpa5/Lqex743xXzpjySczYmdkgoS9Lc+F5s0LJ6QH/aJ6Q==",
   "success": true,
-  "projectFilePath": "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\w\\notes_sync\\notes_sync.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ep\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512"
+  ],
   "logs": []
 }
