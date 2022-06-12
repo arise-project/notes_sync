@@ -35,11 +35,11 @@ namespace notes_sync.Services.Sd
 			
 			///dev/sdc1               1881M 1819M       63M      97% /media/galliumos/182E-D5FE
 
-			return csv.Where(l => l.Skip(5).FirstOrDefault()?.StartWith(ac.MountPointRoot) == true)
+			return csv.Where(l => l.Skip(5).FirstOrDefault()?.IndexOf(ac.MountPointRoot) == 0)
 				.Select(l => new SdCapacity 
 					{ 
 						Sd = sfs.FirstOrDefault(sf => sf.Root == l.Skip(5).First()),
-						Cur = int.Parse((l.Skip(3).FirstOrDefault() ?? "0").TrimEnd("M")) 
+						Cur = int.Parse((l.Skip(3).FirstOrDefault() ?? "0").TrimEnd('M')) 
 					})
 				.ToList();
 		}
