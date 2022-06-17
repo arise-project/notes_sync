@@ -14,7 +14,9 @@ namespace notes_sync
             Console.WriteLine("Notes Sync");
             
             //NYT
-        	new RenameFilesUnit().Run(args);
+        	//new RenameFilesUnit().Run(args);
+        	
+        	new DefaultPackageUnit().Run(args);
         }
     }
 }

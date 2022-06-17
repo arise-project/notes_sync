@@ -23,6 +23,8 @@ Choose 1-4 [1]: 1
 fix of errors of subproblem solve is second recursion call 
 --------------------
 ==========
+21. list of default galium os packages
+==========
 19. correct default files names with structure research -> go_research
 ==========
 18. arrange .deb on sd-card
@@ -31,7 +33,7 @@ fix of errors of subproblem solve is second recursion call
 ==========
 5. check notes internal stucture is valid
 
-
+--------------------
 ==========
 1. scan sd-disk structure default folders default file names with notes
 ==========
@@ -65,3 +67,21 @@ fix of errors of subproblem solve is second recursion call
 ==========
 20. move paragrap to another note
 ==========
+22. Read documentation from archive: https://github.com/dotnet/docs
+==========
+
+-----------------
+example of command not found message:
+
+Could not execute because the specified command or file was not found.
+Possible reasons for this include:
+  * You misspelled a built-in dotnet command.
+  * You intended to execute a .NET Core program, but dotnet-buils does not exist.
+  * You intended to run a global tool, but a dotnet-prefixed executable with this name could not be found on the PATH.
+------------------
+
+example of first release
+
+The basic functionality is implemented, tested and documented:
+
+------------------
