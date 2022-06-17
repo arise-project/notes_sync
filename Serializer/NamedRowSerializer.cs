@@ -14,6 +14,7 @@ namespace notes_sync.Serializer
 			return null;
 		}
 		
+		//https://missingquitbutton.wordpress.com/2019/07/31/using-reflection-with-serialization-part-2/
 		public T Deserialize<T>(string text, string marker)
 		{
 			var d = DeserializePlain(text, marker);

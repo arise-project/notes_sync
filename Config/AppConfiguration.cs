@@ -9,5 +9,7 @@ namespace notes_sync.Config
 		public ProcessModel MountCommand { get; set; }
 		public ProcessModel CapacityCommand { get; set; }
 		public ProcessModel ScriptCommand { get; set; }
+		public ProcessModel PackageShowCommand { get; set; }
+		
 	}
 }
