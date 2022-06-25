@@ -3,7 +3,7 @@ using notes_sync.Model;
 
 namespace notes_sync.Unit
 {
-	public class SensitiveFileUnit
+	public class SensitiveFileUnit : IUnit<SensitiveFile>
 	{
 		public bool Run(string [] args)
 		{

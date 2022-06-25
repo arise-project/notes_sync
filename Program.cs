@@ -15,35 +15,16 @@ namespace notes_sync
             if (File.Exists("./log.txt"))
                 File.Delete("./log.txt");
 
-            CreateHostBuilder(args).Build().Run();
-        }
-        
-        static void Main1(string[] args)
-        {
-        	//PZRK Perun
-        	//FH70
-        	//Igla
-            Console.WriteLine("Notes Sync");
-            
-            //NYT
-        	//new RenameFilesUnit().Run(args);
-        	
-        	new DefaultPackageUnit().Run(args);
+            CreateHostBuilder(args).Build().Run(args);
         }
         
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, loggerConfiguration) =>
                 {
-                    loggerConfiguration.WriteTo.Console(
-                        Serilog.Events.LogEventLevel.Error);
-                    loggerConfiguration.WriteTo.File(
-                        "./log.txt",
-                        Serilog.Events.LogEventLevel.Warning);
+                    loggerConfiguration.WriteTo.Console(Serilog.Events.LogEventLevel.Error);
+                    loggerConfiguration.WriteTo.File("./log.txt", Serilog.Events.LogEventLevel.Warning);
                 })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
     }
 }

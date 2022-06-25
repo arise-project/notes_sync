@@ -4,7 +4,7 @@ using notes_sync.Model;
 namespace notes_sync.Unit
 {
 	//Harpun
-	public class DefaultPackageUnit
+	public class DefaultPackageUnit : IUnit<DefaultPackage>
 	{
 		public bool Run(string [] args)
 		{

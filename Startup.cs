@@ -34,62 +34,65 @@ namespace notes_sync
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            //services.Configure<AppConfig>(Configuration.GetSection("AppConfig"));
+            services.Configure<AppConfiguration>(Configuration.GetSection("AppConfig"));
 	    
-	    //Services DI
-	    services.AddSingleton<InitBuilder, nitBuilder>();
-		services.AddSingleton<ImportantScanner, mportantScanner>();
+		    //Services DI
+		    services.AddSingleton<InitBuilder, nitBuilder>();
+			services.AddSingleton<ImportantScanner, mportantScanner>();
 
-		services.AddSingleton<IArchiveManager, ArchiveManager>();
-		services.AddSingleton<INoteBackup, NoteBackup>();
-		services.AddSingleton<ITextBackup, TextBackup>();
+			services.AddSingleton<IArchiveManager, ArchiveManager>();
+			services.AddSingleton<INoteBackup, NoteBackup>();
+			services.AddSingleton<ITextBackup, TextBackup>();
 
-		services.AddSingleton<ICompressManager, CompressManager>();
-		services.AddSingleton<IContentCleaner, ContentCleaner>();
-		services.AddSingleton<IEraser, Eraser>();
-		services.AddSingleton<IFileCleaner, FileCleaner>();
-		services.AddSingleton<IFolderCleaner, FolderCleaner>();
+			services.AddSingleton<ICompressManager, CompressManager>();
+			services.AddSingleton<IContentCleaner, ContentCleaner>();
+			services.AddSingleton<IEraser, Eraser>();
+			services.AddSingleton<IFileCleaner, FileCleaner>();
+			services.AddSingleton<IFolderCleaner, FolderCleaner>();
 
-		services.AddSingleton<IInitBuilder, InitBuilder>();
-		services.AddSingleton<ISingleInitBuilder, SingleInitBuilder>();
+			services.AddSingleton<IInitBuilder, InitBuilder>();
+			services.AddSingleton<ISingleInitBuilder, SingleInitBuilder>();
 
-		services.AddSingleton<IDebDependencyManager, DebDependencyManager>();
-		services.AddSingleton<IDebManager, DebManager>();
+			services.AddSingleton<IDebDependencyManager, DebDependencyManager>();
+			services.AddSingleton<IDebManager, DebManager>();
 
-		services.AddSingleton<IDiffManager, DiffManager>();
-		services.AddSingleton<IStructureRepositoryManager, StructureRepositoryManager>();
+			services.AddSingleton<IDiffManager, DiffManager>();
+			services.AddSingleton<IStructureRepositoryManager, StructureRepositoryManager>();
 
-		services.AddSingleton<IHardener, Hardener>();
-		services.AddSingleton<IHardSearcher, HardSearcher>();
-		services.AddSingleton<IHardStructureManager, HardStructureManager>();
-		services.AddSingleton<IImportantScanner, ImportantScanner>();
+			services.AddSingleton<IHardener, Hardener>();
+			services.AddSingleton<IHardSearcher, HardSearcher>();
+			services.AddSingleton<IHardStructureManager, HardStructureManager>();
+			services.AddSingleton<IImportantScanner, ImportantScanner>();
 
-		services.AddSingleton<IProcessRunner, ProcessRunner>();
-		services.AddSingleton<IScriptManager, ScriptManager>();
+			services.AddSingleton<IProcessRunner, ProcessRunner>();
+			services.AddSingleton<IScriptManager, ScriptManager>();
 
-		services.AddSingleton<ICapacityManager, CapacityManager>();
-		services.AddSingleton<IFolderMerger, FolderMerger>();
-		services.AddSingleton<IFolderWalker, FolderWalker>();
+			services.AddSingleton<ICapacityManager, CapacityManager>();
+			services.AddSingleton<IFolderMerger, FolderMerger>();
+			services.AddSingleton<IFolderWalker, FolderWalker>();
 
-		services.AddSingleton<ICorrector, Corrector>();
-		services.AddSingleton<IDefaultStructureScanner, DefaultStructureScanner>();
-		services.AddSingleton<INoteParagraphManager, NoteParagraphManager>();
-		services.AddSingleton<INoteStructureChecker, NoteStructureChecker>();
-		services.AddSingleton<IReportManager, ReportManager>();
-		services.AddSingleton<IStructureMerger, StructureMerger>();
-		services.AddSingleton<IStructureSearcher, StructureSearcher>();
-            
-	    //services.AddSingleton((f) => BuildSettings());
+			services.AddSingleton<ICorrector, Corrector>();
+			services.AddSingleton<IDefaultStructureScanner, DefaultStructureScanner>();
+			services.AddSingleton<INoteParagraphManager, NoteParagraphManager>();
+			services.AddSingleton<INoteStructureChecker, NoteStructureChecker>();
+			services.AddSingleton<IReportManager, ReportManager>();
+			services.AddSingleton<IStructureMerger, StructureMerger>();
+			services.AddSingleton<IStructureSearcher, StructureSearcher>();
+        	
+        	//Units DI
+        	services.AddSingleton<IUnit<WrapNotes>, WrapNotesUnit>();
+   			services.AddSingleton<IUnit<SensitiveFile>, SensitiveFileUnit>();
+      		services.AddSingleton<IUnit<RenameFiles>, RenameFilesUnit>();
+        	services.AddSingleton<IUnit<DefaultPackage>, DefaultPackageUnit>();
+        	        
+		    services.AddSingleton((f) => BuildSettings());
         }
 
         public void Configure(
@@ -97,23 +100,32 @@ namespace notes_sync
             IWebHostEnvironment env, 
             IServiceProvider provider)
         {
+            //PZRK Perun
+        	//FH70
+        	//Igla
+            Console.WriteLine("Notes Sync");
+            
             //AppConfig appConfig = provider.GetService<IOptions<AppConfig>>().Value;
             Console.WriteLine("==================================");
             Console.WriteLine("App Config:");
             //Console.WriteLine(JsonConvert.SerializeObject(appConfig));
             Console.WriteLine("==================================");
-            //provider.GetService<IServiceBuilder>().Run();
-
+            provider.GetService<IDefaultPackageUnit>().Run(args);
             
+            //NYT
+        	//new RenameFilesUnit().Run(args);
+        	new DefaultPackageUnit().Run(args);            
         }
 
         public Settings BuildSettings()
         {
-            string text = System.IO.File.ReadAllText(@"RuleSettings.yml");
+            string text = System.IO.File.ReadAllText("RuleSettings.yml");
+            
             Console.WriteLine("----------------------------------");
             Console.WriteLine("Rule Settings:");
             Console.WriteLine(text);
             Console.WriteLine("----------------------------------");
+            
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
