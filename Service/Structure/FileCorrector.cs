@@ -3,7 +3,7 @@ using notes_sync.Model;
 
 namespace notes_sync.Services.Structure
 {
-	public class Corrector : ICorrector
+	public class FileCorrector : IFileCorrector
 	{
 		public bool RenameToSimple(TextFile tf)
 		{
