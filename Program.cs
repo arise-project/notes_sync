@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
-using notes_sync.Unit;
+﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Serilog;
 
 namespace notes_sync
 {

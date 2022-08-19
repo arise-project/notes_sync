@@ -3,32 +3,30 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using notes_sync.Config;
+using notes_sync.Services.Backup;
+using notes_sync.Services.Backup.Interface;
+using notes_sync.Services.Clean;
+using notes_sync.Services.Clean.Interface;
+using notes_sync.Services.Init;
+using notes_sync.Services.Init.Interface;
+using notes_sync.Services.Package;
+using notes_sync.Services.Package.Interface;
+using notes_sync.Services.Repo;
+using notes_sync.Services.Repo.Interface;
+using notes_sync.Services.Ressillence;
+using notes_sync.Services.Ressillence.Interface;
+using notes_sync.Services.Script;
+using notes_sync.Services.Script.Interface;
+using notes_sync.Services.Sd;
+using notes_sync.Services.Sd.Interface;
+using notes_sync.Services.Structure;
+using notes_sync.Services.Structure.Interface;
+using notes_sync.Unit;
+using notes_sync.Unit.Interface;
 using System;
-using aspose_health_check.Service;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
-using notes_sync.Service;
-using notes_sync.Service.Interface;
-using notes_sync.Backup;
-using notes_sync.Backup.Interface;
-using notes_sync.Clean;
-using notes_sync.Clean.Interface;
-using notes_sync.Init;
-using notes_sync.Init.Interface;
-using notes_sync.Package;
-using notes_sync.Package.Interface;
-using notes_sync.Repo;
-using notes_sync.Repo.Interface;
-using notes_sync.Ressilience;
-using notes_sync.Ressilience.Interface;
-using notes_sync.Script;
-using notes_sync.Script.Interface;
-using notes_sync.Sd;
-using notes_sync.Sd.Interface;
-using notes_sync.Structure;
-using notes_sync.Structure.Interface;
 
 namespace notes_sync
 {
@@ -41,11 +39,11 @@ namespace notes_sync
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<AppConfiguration>(Configuration.GetSection("AppConfig"));
+            services.Configure<AppConfig>(Configuration.GetSection("AppConfig"));
 	    
 		    //Services DI
-		    services.AddSingleton<InitBuilder, nitBuilder>();
-			services.AddSingleton<ImportantScanner, mportantScanner>();
+		    services.AddSingleton<IInitBuilder, InitBuilder>();
+			services.AddSingleton<IImportantScanner, ImportantScanner>();
 
 			services.AddSingleton<IArchiveManager, ArchiveManager>();
 			services.AddSingleton<INoteBackup, NoteBackup>();
@@ -114,7 +112,7 @@ namespace notes_sync
             
             //NYT
         	//new RenameFilesUnit().Run(args);
-        	new DefaultPackageUnit().Run(args);            
+        	//new DefaultPackageUnit().Run(args);            
         }
 
         public Settings BuildSettings()

@@ -1,11 +1,9 @@
-using notes_sync.Services.Structure.Interface;
-using notes_sync.Model;
 using notes_sync.Config.Interface;
 using notes_sync.Unit.Interface;
 
 namespace notes_sync.Unit
 {
-	public class WrapNotesUnit : IUnit<WrapNotes>
+    public class WrapNotesUnit : IUnit<WrapNotes>
 	{
 		IAppConfig conf;
 		public WrapNotesUnit(IAppConfig conf)
