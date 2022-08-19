@@ -1,5 +1,0 @@
-C:\Users\epiro\Documents\notes_sync\obj\Debug\netcoreapp3.1\notes_sync.csproj.AssemblyReference.cache
-C:\Users\epiro\Documents\notes_sync\obj\Debug\netcoreapp3.1\notes_sync.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\epiro\Documents\notes_sync\obj\Debug\netcoreapp3.1\notes_sync.AssemblyInfoInputs.cache
-C:\Users\epiro\Documents\notes_sync\obj\Debug\netcoreapp3.1\notes_sync.AssemblyInfo.cs
-C:\Users\epiro\Documents\notes_sync\obj\Debug\netcoreapp3.1\notes_sync.csproj.CoreCompileInputs.cache
