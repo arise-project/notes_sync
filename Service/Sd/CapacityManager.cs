@@ -2,13 +2,12 @@ using System.Linq;
 using System.Collections.Generic;
 using notes_sync.Services.Sd.Interface;
 using notes_sync.Services.Script;
-using notes_sync.Config;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Sd
 {
-	public class CapacityManager : ICapacityManager
+    public class CapacityManager : ICapacityManager
 	{
 		IAppConfig conf;
 		ProcessRunner pr;
