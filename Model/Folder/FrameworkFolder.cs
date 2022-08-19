@@ -4,6 +4,8 @@ namespace notes_sync.Model
 {
 	public class FrameworkFolder : FolderModel
 	{
-		public List<Framework> Frameworks {get;set;}
+		public FrameworkFolder(string name, string fullName) : base(name, fullName)
+		{
+		}
 	}	
 }

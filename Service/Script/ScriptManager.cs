@@ -14,7 +14,7 @@ namespace notes_sync.Services.Script
 		
 		IAppConfig conf;
 		
-		public ScriptManager(IAppConfig conf, IProcessRunner pr)
+		public ScriptManager(IAppConfig conf, ProcessRunner pr)
 		{
 			this.conf = conf;
 			this.pr = pr;	

@@ -3,7 +3,7 @@ using notes_sync.Model;
 using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Sd
-
+{
 	public class FolderWalker : IFolderMerger
 	{
 		IAppConfig conf;

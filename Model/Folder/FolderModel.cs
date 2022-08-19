@@ -2,7 +2,7 @@ namespace notes_sync.Model
 {
 	public class FolderModel
 	{
-		public FolderModel(string namem string fullName)
+		public FolderModel(string name, string fullName)
 		{
 			Name = name;
 			FullName = fullName;	
