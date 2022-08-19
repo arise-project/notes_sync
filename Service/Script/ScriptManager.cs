@@ -4,23 +4,25 @@ using System.Collections.Generic;
 using notes_sync.Services.Script.Interface;
 using notes_sync.Config;
 using notes_sync.Model;
+using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Script
 {
 	public class ScriptManager : IScriptManager
 	{
-		AppConfiguration ac;
 		ProcessRunner pr;
 		
-		public ScriptManager(AppConfiguration ac, ProcessRunner pr)
+		IAppConfig conf;
+		
+		public ScriptManager(IAppConfig conf, IProcessRunner pr)
 		{
-			this.ac = ac;
+			this.conf = conf;
 			this.pr = pr;	
 		}
 		
 		public bool Run(ScriptModel sm)
 		{
-			sm.Init(ac);
+			sm.Init(conf);
 			var pom = pr.Run(sm);
 			return pom.Ok;
 		}

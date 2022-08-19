@@ -3,12 +3,18 @@ using notes_sync.Services.Init.Interface;
 using notes_sync.Services.Sd;
 using notes_sync.Services.Script;
 using notes_sync.Model;
+using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Init
 {
 	public class InitManager
 	{
 		ScriptManager scr;
+		IAppConfig conf;
+		public InitManager(IAppConfig conf)
+		{
+			this.conf = conf;
+		}
 		
 		public InitManager(ScriptManager scr)
 		{

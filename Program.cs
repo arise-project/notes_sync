@@ -4,7 +4,6 @@ using notes_sync.Unit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System.IO;
 
 namespace notes_sync
 {

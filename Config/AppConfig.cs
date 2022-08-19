@@ -3,7 +3,7 @@ using notes_sync.Model;
 namespace notes_sync.Config
 {
 	//Zuzana 2
-	public class AppConfiguration
+	public class AppConfig
 	{
 		public string MountPointRoot { get; set; }
 		public ProcessModel MountCommand { get; set; }

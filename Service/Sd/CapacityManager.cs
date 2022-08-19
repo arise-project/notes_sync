@@ -4,18 +4,19 @@ using notes_sync.Services.Sd.Interface;
 using notes_sync.Services.Script;
 using notes_sync.Config;
 using notes_sync.Model;
+using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Sd
 {
 	public class CapacityManager : ICapacityManager
 	{
-		AppConfiguration ac;
+		IAppConfig conf;
 		ProcessRunner pr;
 		ScriptManager sm;
-		
-		public CapacityManager(AppConfiguration ac, ProcessRunner pr, ScriptManager sm)
+
+		public CapacityManager(IAppConfig conf, ProcessRunner pr, ScriptManager sm)
 		{
-			this.ac = ac;
+			this.conf = conf;
 			this.pr = pr;
 			this.sm = sm;
 		}
@@ -24,7 +25,7 @@ namespace notes_sync.Services.Sd
 		public List<SdCapacity> List(List<SdFolder> sfs)
 		{
 			// /media/galliumos/182E-D5FE
-			var pom = pr.Run(ac.MountCommand);
+			var pom = pr.Run(conf.MountCommand);
 			
 			if(!pom.Ok)
 			{

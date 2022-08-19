@@ -5,14 +5,21 @@ using notes_sync.Services.Sd.Interface;
 using notes_sync.Services.Script;
 using notes_sync.Config;
 using notes_sync.Model;
+using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Sd
 {
 	//FH70
 	public class SdManager : ICapacityManager
 	{
+		IAppConfig conf;
+		public SdManager(IAppConfig conf, ProcessRunner pr, ScriptManager sm)
+		{
+			this.conf = conf;
+		}
+
 		// mount		
-		public List<SdFolder> List(AppConfiguration ac, ProcessRunner pr, ScriptManager sm)
+		public List<SdFolder> List()
 		{
 			var pom = pr.Run(ac.MountCommand);
 			
