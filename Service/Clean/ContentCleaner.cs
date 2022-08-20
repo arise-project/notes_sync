@@ -4,12 +4,12 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Clean
 {
-	public class ContentCleaner : IContentCleaner
-	{
-		IAppConfig conf;
-		public ContentCleaner(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
-	}
+    public class ContentCleaner : IContentCleaner
+    {
+        readonly IAppConfig conf;
+        public ContentCleaner(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
+    }
 }

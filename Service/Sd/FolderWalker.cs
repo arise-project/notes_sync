@@ -4,12 +4,12 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Sd
 {
-	public class FolderWalker : IFolderMerger
-	{
-		IAppConfig conf;
-		public FolderWalker(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
-	}	
+    public class FolderWalker : IFolderMerger
+    {
+        readonly IAppConfig conf;
+        public FolderWalker(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
+    }
 }

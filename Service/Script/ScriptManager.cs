@@ -8,29 +8,29 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Script
 {
-	public class ScriptManager : IScriptManager
-	{
-		ProcessRunner pr;
-		
-		IAppConfig conf;
-		
-		public ScriptManager(IAppConfig conf, ProcessRunner pr)
-		{
-			this.conf = conf;
-			this.pr = pr;	
-		}
-		
-		public bool Run(ScriptModel sm)
-		{
-			sm.Init(conf);
-			var pom = pr.Run(sm);
-			return pom.Ok;
-		}
-		
-		public List<string[]> ParseCsvStdOut(string so)
-		{
-			var ls = so.Replace(Environment.NewLine, "л").Split('л');
-			return ls.Select(l => l.Split('\t')).ToList();
-		}
-	}
+    public class ScriptManager : IScriptManager
+    {
+        readonly ProcessRunner pr;
+
+        readonly IAppConfig conf;
+
+        public ScriptManager(IAppConfig conf, ProcessRunner pr)
+        {
+            this.conf = conf;
+            this.pr = pr;
+        }
+
+        public bool Run(ScriptModel sm)
+        {
+            sm.Init(conf);
+            var pom = pr.Run(sm);
+            return pom.Ok;
+        }
+
+        public List<string[]> ParseCsvStdOut(string so)
+        {
+            var ls = so.Replace(Environment.NewLine, "л").Split('л');
+            return ls.Select(l => l.Split('\t')).ToList();
+        }
+    }
 }

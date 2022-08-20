@@ -4,12 +4,12 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Repo
 {
-	public class DiffManager : IDiffManager
-	{
-		IAppConfig conf;
-		public DiffManager(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
-	}
+    public class DiffManager : IDiffManager
+    {
+        readonly IAppConfig conf;
+        public DiffManager(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
+    }
 }

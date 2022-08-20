@@ -4,17 +4,17 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Clean
 {
-	public class CompressManager : ICompressManager
-	{
-		IAppConfig conf;
-		public CompressManager(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    public class CompressManager : ICompressManager
+    {
+        readonly IAppConfig conf;
+        public CompressManager(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public bool DuplicatesToDelimiter(TextFile tf)
-		{
-			return false;
-		}
-	}
+        public bool DuplicatesToDelimiter(TextFile tf)
+        {
+            return false;
+        }
+    }
 }

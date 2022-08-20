@@ -6,14 +6,14 @@ namespace notes_sync
 {
     class Program
     {
-    	public static void Main(string[] args)
+        public static void Main(string[] args)
         {
             if (File.Exists("./log.txt"))
                 File.Delete("./log.txt");
 
             CreateHostBuilder(args).Build().Run(args);
         }
-        
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, loggerConfiguration) =>

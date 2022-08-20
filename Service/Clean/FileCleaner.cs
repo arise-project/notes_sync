@@ -4,22 +4,22 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Clean
 {
-	public class FileCleaner : IFileCleaner
-	{
-		IAppConfig conf;
-		public FileCleaner(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    public class FileCleaner : IFileCleaner
+    {
+        readonly IAppConfig conf;
+        public FileCleaner(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public bool Remove(TextFile tf)
-		{
-			return false;
-		}
+        public bool Remove(TextFile tf)
+        {
+            return false;
+        }
 
-		public bool Remove(NoteFile tf)
-		{
-			return false;
-		}
-	}	
+        public bool Remove(NoteFile tf)
+        {
+            return false;
+        }
+    }
 }

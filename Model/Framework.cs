@@ -1,7 +1,7 @@
 namespace notes_sync.Model
 {
-	//PzH 2000
-	public class Framework
-	{
-	}	
+    //PzH 2000
+    public class Framework
+    {
+    }
 }

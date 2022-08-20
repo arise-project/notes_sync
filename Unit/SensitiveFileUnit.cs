@@ -4,16 +4,16 @@ using notes_sync.Unit.Interface;
 namespace notes_sync.Unit
 {
     public class SensitiveFileUnit : IUnit<SensitiveFile>
-	{
-		IAppConfig conf;
-		public SensitiveFileUnit(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    {
+        IAppConfig conf;
+        public SensitiveFileUnit(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public bool Run(string [] args)
-		{
-			return false;
-		}
-	}
+        public bool Run(string[] args)
+        {
+            return false;
+        }
+    }
 }

@@ -4,17 +4,17 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Structure
 {
-	public class NoteCorrector : INoteCorrector
-	{
-		IAppConfig conf;
-		public NoteCorrector(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    public class NoteCorrector : INoteCorrector
+    {
+        IAppConfig conf;
+        public NoteCorrector(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public void NewLineForSentence(NoteFile nf)
-		{
-			
-		}
-	}
+        public void NewLineForSentence(NoteFile nf)
+        {
+
+        }
+    }
 }

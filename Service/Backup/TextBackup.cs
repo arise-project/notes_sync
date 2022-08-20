@@ -4,17 +4,17 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Backup
 {
-	public class TextBackup : ITextBackup
-	{
-		IAppConfig conf;
-		public TextBackup(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    public class TextBackup : ITextBackup
+    {
+        readonly IAppConfig conf;
+        public TextBackup(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public bool Zip(TextFolder tf, BackupFolder bf)
-		{
-			return false;
-		}
-	}
+        public bool Zip(TextFolder tf, BackupFolder bf)
+        {
+            return false;
+        }
+    }
 }

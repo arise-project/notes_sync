@@ -4,12 +4,12 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Structure
 {
-	public class StructureMerger : IStructureMerger
-	{
-		IAppConfig conf;
-		public StructureMerger(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
-	}	
+    public class StructureMerger : IStructureMerger
+    {
+        IAppConfig conf;
+        public StructureMerger(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
+    }
 }

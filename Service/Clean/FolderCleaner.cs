@@ -4,22 +4,22 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Clean
 {
-	public class FolderCleaner : IFolderCleaner
-	{
-		IAppConfig conf;
-		public FolderCleaner(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
-		
-		public bool Remove(TextFolder tf)
-		{
-			return false;
-		}
+    public class FolderCleaner : IFolderCleaner
+    {
+        readonly IAppConfig conf;
+        public FolderCleaner(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public bool Remove(NoteFolder tf)
-		{
-			return false;
-		}
-	}	
+        public bool Remove(TextFolder tf)
+        {
+            return false;
+        }
+
+        public bool Remove(NoteFolder tf)
+        {
+            return false;
+        }
+    }
 }

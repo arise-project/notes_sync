@@ -6,31 +6,33 @@ using notes_sync.Config.Interface;
 
 namespace notes_sync.Services.Script
 {
-	public class ProcessRunner : IProcessRunner
-	{
-		IAppConfig conf;
-		public ProcessRunner(IAppConfig conf)
-		{
-			this.conf = conf;
-		}
+    public class ProcessRunner : IProcessRunner
+    {
+        readonly IAppConfig conf;
+        public ProcessRunner(IAppConfig conf)
+        {
+            this.conf = conf;
+        }
 
-		public ProcessOutputModel Run(ProcessModel pm)
-		{
-			Process p = new Process();
-	        p.StartInfo = new ProcessStartInfo(pm.Command, pm.Arguments ) {
-	            UseShellExecute = false,
-	            CreateNoWindow = true,
-	            RedirectStandardOutput = true,
-	            RedirectStandardError = true
-	        };
-	
-	        p.Start();
-	        p.WaitForExit();
-	        
-	        return new ProcessOutputModel{
-	        	StdOut = p.StandardOutput.ReadToEnd(),
-	        	StdErr = p.StandardError.ReadToEnd()	
-	        };
-		}
-	}
+        public ProcessOutputModel Run(ProcessModel pm)
+        {
+            Process p = new Process();
+            p.StartInfo = new ProcessStartInfo(pm.Command, pm.Arguments)
+            {
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            };
+
+            p.Start();
+            p.WaitForExit();
+
+            return new ProcessOutputModel
+            {
+                StdOut = p.StandardOutput.ReadToEnd(),
+                StdErr = p.StandardError.ReadToEnd()
+            };
+        }
+    }
 }
