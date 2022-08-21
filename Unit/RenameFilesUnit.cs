@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using notes_sync.Config.Interface;
 using notes_sync.Unit.Interface;
 
@@ -8,9 +9,9 @@ namespace notes_sync.Unit
     public class RenameFilesUnit : IUnit<RenameFiles>
     {
         IAppConfig conf;
-        public RenameFilesUnit(IAppConfig conf)
+        public RenameFilesUnit(IOptions<IAppConfig> conf)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
         }
 
         public bool Run(string[] args)

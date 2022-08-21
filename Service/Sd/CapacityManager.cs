@@ -4,6 +4,7 @@ using notes_sync.Services.Sd.Interface;
 using notes_sync.Services.Script;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
+using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Sd
 {
@@ -13,9 +14,9 @@ namespace notes_sync.Services.Sd
         readonly ProcessRunner pr;
         readonly ScriptManager sm;
 
-        public CapacityManager(IAppConfig conf, ProcessRunner pr, ScriptManager sm)
+        public CapacityManager(IOptions<IAppConfig> conf, ProcessRunner pr, ScriptManager sm)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
             this.pr = pr;
             this.sm = sm;
         }

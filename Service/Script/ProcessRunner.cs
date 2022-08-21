@@ -3,15 +3,16 @@ using notes_sync.Services.Script.Interface;
 using notes_sync.Config;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
+using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Script
 {
     public class ProcessRunner : IProcessRunner
     {
         readonly IAppConfig conf;
-        public ProcessRunner(IAppConfig conf)
+        public ProcessRunner(IOptions<IAppConfig> conf)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
         }
 
         public ProcessOutputModel Run(ProcessModel pm)

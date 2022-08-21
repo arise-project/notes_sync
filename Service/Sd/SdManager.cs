@@ -6,6 +6,7 @@ using notes_sync.Services.Script;
 using notes_sync.Config;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
+using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Sd
 {
@@ -15,9 +16,9 @@ namespace notes_sync.Services.Sd
         ProcessRunner pr;
         readonly ScriptManager sm;
         readonly IAppConfig conf;
-        public SdManager(IAppConfig conf, ProcessRunner pr, ScriptManager sm)
+        public SdManager(IOptions<IAppConfig> conf, ProcessRunner pr, ScriptManager sm)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
             this.pr = pr;
             this.sm = sm;
         }

@@ -4,6 +4,7 @@ using notes_sync.Services.Sd;
 using notes_sync.Services.Script;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
+using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Init
 {
@@ -11,9 +12,9 @@ namespace notes_sync.Services.Init
     {
         readonly ScriptManager scr;
         readonly IAppConfig conf;
-        public InitManager(IAppConfig conf)
+        public InitManager(IOptions<IAppConfig> conf)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
         }
 
         public InitManager(ScriptManager scr)

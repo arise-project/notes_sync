@@ -2,15 +2,16 @@ using System.Collections.Generic;
 using notes_sync.Services.Package.Interface;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
+using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Package
 {
     public class DebDependencyManager : IDebDependencyManager
     {
         readonly IAppConfig conf;
-        public DebDependencyManager(IAppConfig conf)
+        public DebDependencyManager(IOptions<IAppConfig> conf)
         {
-            this.conf = conf;
+            this.conf = conf.Value;
         }
 
 
