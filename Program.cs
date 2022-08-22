@@ -1,6 +1,7 @@
 ﻿using System.IO;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 namespace notes_sync
 {
@@ -16,11 +17,12 @@ namespace notes_sync
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog((context, loggerConfiguration) =>
+                .ConfigureHostConfiguration(configHost =>
                 {
-                    loggerConfiguration.WriteTo.Console(Serilog.Events.LogEventLevel.Error);
-                    loggerConfiguration.WriteTo.File("./log.txt", Serilog.Events.LogEventLevel.Warning);
-                })
-                .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+                    configHost.SetBasePath(Directory.GetCurrentDirectory());
+                    configHost.AddJsonFile("hostsettings.json", optional: true);
+                    configHost.AddEnvironmentVariables(prefix: "PREFIX_");
+                    configHost.AddCommandLine(args);
+                });
     }
 }

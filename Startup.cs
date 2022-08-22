@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -108,7 +106,6 @@ namespace notes_sync
         }
 
         public void Configure(
-            IApplicationBuilder app,
             IServiceProvider provider)
         {
             //PZRK Perun
