@@ -3,8 +3,9 @@ using notes_sync.Model;
 
 namespace notes_sync.Unit.Interface
 {
-    public interface IUnit<T> where T : struct 
+    public interface IUnit
     {
-        public bool Run(string[] args);
+        UnitType UnitType {get;}
+        bool Run(string[] args);
     }
 }

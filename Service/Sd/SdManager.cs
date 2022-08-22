@@ -25,7 +25,7 @@ namespace notes_sync.Services.Sd
         }
 
         // mount		
-        public List<SdFolder> List(List<SdFolder> sfs)
+        public List<SdCapacity> List(List<SdFolder> sfs)
         {
             var pom = pr.Run(conf.MountCommand);
 

@@ -95,7 +95,6 @@ namespace notes_sync
 
         public void Configure(
             IApplicationBuilder app,
-            IHostEnvironment env,
             IServiceProvider provider)
         {
             //PZRK Perun

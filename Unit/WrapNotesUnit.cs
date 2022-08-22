@@ -4,7 +4,7 @@ using notes_sync.Unit.Interface;
 
 namespace notes_sync.Unit
 {
-    public class WrapNotesUnit : IUnit<UnitType.WrapNotes>
+    public class WrapNotesUnit : IUnit
     {
         AppConfig conf;
 
@@ -12,6 +12,8 @@ namespace notes_sync.Unit
         {
             this.conf = conf.Value;
         }
+
+        public UnitType UnitType {get;} = UnitType.WrapNotes;
 
         public bool Run(string[] args)
         {
