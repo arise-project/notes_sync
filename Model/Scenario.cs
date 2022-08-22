@@ -1,6 +1,6 @@
 namespace notes_sync.Model
 {
-	public class Scenario
-	{
-	}	
+    public class Scenario
+    {
+    }
 }

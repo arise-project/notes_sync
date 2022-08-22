@@ -1,6 +1,6 @@
 namespace notes_sync.Model
 {
-	public class Project
-	{
-	}	
+    public class Project
+    {
+    }
 }
