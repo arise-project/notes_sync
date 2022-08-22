@@ -25,3 +25,9 @@ D:/w/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.genruntimeconfig.cache
 /media/galliumos/Ventoy/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.dll
 /media/galliumos/Ventoy/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.pdb
 /media/galliumos/Ventoy/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.genruntimeconfig.cache
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.csprojAssemblyReference.cache
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.AssemblyInfoInputs.cache
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.AssemblyInfo.cs
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.csproj.CoreCompileInputs.cache
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.dll
+/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/Debug/netcoreapp3.1/notes_sync.pdb

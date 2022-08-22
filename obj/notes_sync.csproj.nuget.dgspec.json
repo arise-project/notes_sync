@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj": {}
+    "/media/galliumos/FLASHDEVICE/proj/notes_sync/notes_sync.csproj": {}
   },
   "projects": {
-    "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj": {
+    "/media/galliumos/FLASHDEVICE/proj/notes_sync/notes_sync.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj",
+        "projectUniqueName": "/media/galliumos/FLASHDEVICE/proj/notes_sync/notes_sync.csproj",
         "projectName": "notes_sync",
-        "projectPath": "/media/galliumos/Ventoy/proj/notes_sync/notes_sync.csproj",
+        "projectPath": "/media/galliumos/FLASHDEVICE/proj/notes_sync/notes_sync.csproj",
         "packagesPath": "/home/galliumos/.nuget/packages/",
-        "outputPath": "/media/galliumos/Ventoy/proj/notes_sync/obj/",
+        "outputPath": "/media/galliumos/FLASHDEVICE/proj/notes_sync/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/galliumos/.nuget/NuGet/NuGet.Config"
@@ -35,28 +35,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Humanizer": {
-              "target": "Package",
-              "version": "[2.14.1, )"
-            },
-            "LibGit2Sharp": {
-              "target": "Package",
-              "version": "[0.26.2, )"
-            },
-            "MailKit": {
-              "target": "Package",
-              "version": "[3.3.0, )"
-            },
-            "Serilog": {
-              "target": "Package",
-              "version": "[2.11.0, )"
-            },
-            "YamlDotNet": {
-              "target": "Package",
-              "version": "[11.2.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -72,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/media/galliumos/Ventoy/usr/dotnet/sdk/3.1.419/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/galliumos/Downloads/usr/dotnet/sdk/3.1.419/RuntimeIdentifierGraph.json"
         }
       }
     }
