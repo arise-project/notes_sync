@@ -11,7 +11,7 @@ namespace notes_sync
             if (File.Exists("./log.txt"))
                 File.Delete("./log.txt");
 
-            CreateHostBuilder(args).Build().Run(args);
+            CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
