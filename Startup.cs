@@ -85,11 +85,25 @@ namespace notes_sync
             services.AddSingleton<IStructureSearcher, StructureSearcher>();
 
             //Units DI
-            services.AddSingleton<IUnit<WrapNotes>, WrapNotesUnit>();
-            services.AddSingleton<IUnit<SensitiveFile>, SensitiveFileUnit>();
-            services.AddSingleton<IUnit<RenameFiles>, RenameFilesUnit>();
-            services.AddSingleton<IUnit<DefaultPackage>, DefaultPackageUnit>();
-
+            var unitType = UnitType.RenameFiles;
+            switch (unitType)
+            {
+                case UnitType.WrapNotes:
+                    services.AddSingleton<IUnit<WrapNotes>, WrapNotesUnit>();
+                    break;
+                case UnitType.SensitiveFile:
+                    services.AddSingleton<IUnit<SensitiveFile>, SensitiveFileUnit>();
+                    break;
+                case UnitType.RenameFiles:
+                    services.AddSingleton<IUnit<RenameFiles>, RenameFilesUnit>();
+                    break;
+                case UnitType.DefaultPackage:                
+                    services.AddSingleton<IUnit<DefaultPackage>, DefaultPackageUnit>();
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            
             services.AddSingleton((f) => BuildSettings());
         }
 
@@ -107,7 +121,8 @@ namespace notes_sync
             Console.WriteLine("App Config:");
             //Console.WriteLine(JsonConvert.SerializeObject(appConfig));
             Console.WriteLine("==================================");
-            provider.GetService<IDefaultPackageUnit>().Run(args);
+            string [] args = null;
+            provider.GetService<IUnit>().Run(args);
 
             //NYT
             //new RenameFilesUnit().Run(args);

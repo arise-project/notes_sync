@@ -37,7 +37,7 @@ namespace notes_sync.Services.Sd
 
             ///dev/sdc1               1881M 1819M       63M      97% /media/galliumos/182E-D5FE
 
-            return csv.Where(l => l.Skip(5).FirstOrDefault()?.IndexOf(ac.MountPointRoot) == 0)
+            return csv.Where(l => l.Skip(5).FirstOrDefault()?.IndexOf(conf.MountPointRoot) == 0)
                 .Select(l => new SdCapacity
                 {
                     Sd = sfs.Find(sf => sf.Root == l.Skip(5).First()),
