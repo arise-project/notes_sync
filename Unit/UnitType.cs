@@ -8,6 +8,6 @@ namespace notes_sync.Unit
         DefaultPackage,
         RenameFiles,
         SensitiveFile,
-        WrapNo
+        WrapNotes
     }
 }

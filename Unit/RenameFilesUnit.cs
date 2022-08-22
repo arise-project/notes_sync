@@ -1,15 +1,15 @@
 using Microsoft.Extensions.Options;
-using notes_sync.Config.Interface;
+
 using notes_sync.Unit.Interface;
 
 namespace notes_sync.Unit
 {
 
     //Panzerhaubitze 2000
-    public class RenameFilesUnit : IUnit<RenameFiles>
+    public class RenameFilesUnit : IUnit<UnitType.RenameFiles>
     {
-        IAppConfig conf;
-        public RenameFilesUnit(IOptions<IAppConfig> conf)
+        AppConfig conf;
+        public RenameFilesUnit(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

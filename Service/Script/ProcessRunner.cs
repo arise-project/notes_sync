@@ -2,7 +2,7 @@ using System.Diagnostics;
 using notes_sync.Services.Script.Interface;
 using notes_sync.Config;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
 using notes_sync.Config;
 

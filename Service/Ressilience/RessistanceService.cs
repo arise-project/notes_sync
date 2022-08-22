@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Options;
-using notes_sync.Config.Interface;
+
 using notes_sync.Config;
 
 namespace notes_sync.Services.Ressillence

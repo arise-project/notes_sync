@@ -1,6 +1,6 @@
 using notes_sync.Services.Backup.Interface;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
 using notes_sync.Config;
 
