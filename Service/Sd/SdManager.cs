@@ -13,7 +13,7 @@ using notes_sync.Config;
 namespace notes_sync.Services.Sd
 {
     //FH70
-    public class SdManager : ICapacityManager
+    public class SdManager : ISdManager
     {
         ProcessRunner pr;
         readonly ScriptManager sm;
@@ -26,7 +26,7 @@ namespace notes_sync.Services.Sd
         }
 
         // mount		
-        public List<SdCapacity> List(List<SdFolder> sfs)
+        public List<SdFolder> List()
         {
             var pom = pr.Run(conf.MountCommand);
 

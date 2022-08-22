@@ -89,16 +89,16 @@ namespace notes_sync
             switch (unitType)
             {
                 case UnitType.WrapNotes:
-                    services.AddSingleton<IUnit<WrapNotes>, WrapNotesUnit>();
+                    services.AddSingleton<IUnit, WrapNotesUnit>();
                     break;
                 case UnitType.SensitiveFile:
-                    services.AddSingleton<IUnit<SensitiveFile>, SensitiveFileUnit>();
+                    services.AddSingleton<IUnit, SensitiveFileUnit>();
                     break;
                 case UnitType.RenameFiles:
-                    services.AddSingleton<IUnit<RenameFiles>, RenameFilesUnit>();
+                    services.AddSingleton<IUnit, RenameFilesUnit>();
                     break;
                 case UnitType.DefaultPackage:                
-                    services.AddSingleton<IUnit<DefaultPackage>, DefaultPackageUnit>();
+                    services.AddSingleton<IUnit, DefaultPackageUnit>();
                     break;
                 default:
                     throw new NotImplementedException();
