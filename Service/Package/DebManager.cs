@@ -3,13 +3,14 @@ using notes_sync.Services.Package.Interface;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Package
 {
     public class DebManager : IDebManager
     {
-        readonly IAppConfig conf;
-        public DebManager(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public DebManager(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

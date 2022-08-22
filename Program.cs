@@ -4,7 +4,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace notes_sync
 {
-    class Program
+    static class Program
     {
         public static void Main(string[] args)
         {

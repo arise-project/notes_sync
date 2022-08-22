@@ -4,13 +4,14 @@ using notes_sync.Config;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Script
 {
     public class ProcessRunner : IProcessRunner
     {
-        readonly IAppConfig conf;
-        public ProcessRunner(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public ProcessRunner(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

@@ -5,16 +5,17 @@ using notes_sync.Services.Script;
 using notes_sync.Model;
 using notes_sync.Config.Interface;
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Sd
 {
     public class CapacityManager : ICapacityManager
     {
-        readonly IAppConfig conf;
+        readonly AppConfig conf;
         readonly ProcessRunner pr;
         readonly ScriptManager sm;
 
-        public CapacityManager(IOptions<IAppConfig> conf, ProcessRunner pr, ScriptManager sm)
+        public CapacityManager(IOptions<AppConfig> conf, ProcessRunner pr, ScriptManager sm)
         {
             this.conf = conf.Value;
             this.pr = pr;

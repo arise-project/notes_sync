@@ -1,12 +1,13 @@
 using Microsoft.Extensions.Options;
 using notes_sync.Config.Interface;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Ressillence
 {
     public class RessistanceService
     {
-        readonly IAppConfig conf;
-        public RessistanceService(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public RessistanceService(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }
