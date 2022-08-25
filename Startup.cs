@@ -25,19 +25,18 @@ using notes_sync.Unit.Interface;
 using System;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
+
 
 namespace notes_sync
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration) => Configuration = configuration;
-
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
+        public static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<AppConfig>(Configuration.GetSection("AppConfig"));
+            services.Configure<AppConfig>(ctx.Configuration.GetSection("AppConfig"));
 
             //Services DI
             services.AddSingleton<IInitBuilder, InitBuilder>();
@@ -105,7 +104,7 @@ namespace notes_sync
             services.AddSingleton((f) => BuildSettings());
         }
 
-        public void Configure(
+        public static void Run(
             IServiceProvider provider)
         {
             //PZRK Perun
@@ -113,20 +112,21 @@ namespace notes_sync
             //Igla
             Console.WriteLine("Notes Sync");
 
-            //AppConfig appConfig = provider.GetService<IOptions<AppConfig>>().Value;
+            AppConfig appConfig = provider.GetService<IOptions<AppConfig>>().Value;
             Console.WriteLine("==================================");
             Console.WriteLine("App Config:");
-            //Console.WriteLine(JsonConvert.SerializeObject(appConfig));
+            Console.WriteLine(JsonConvert.SerializeObject(appConfig));
             Console.WriteLine("==================================");
             string [] args = null;
-            provider.GetService<IUnit>().Run(args);
-
+            var s = provider.GetService<Settings>();
+            
             //NYT
+            provider.GetService<IUnit>().Run(args);
             //new RenameFilesUnit().Run(args);
             //new DefaultPackageUnit().Run(args);            
         }
 
-        public Settings BuildSettings()
+        private static Settings BuildSettings()
         {
             string text = System.IO.File.ReadAllText("RuleSettings.yml");
 
