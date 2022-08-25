@@ -1,14 +1,14 @@
 using notes_sync.Services.Sd.Interface;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Sd
 {
-    public class FolderWalker : IFolderMerger
+    public class FolderWalker : IFolderWalker
     {
-        readonly IAppConfig conf;
-        public FolderWalker(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public FolderWalker(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

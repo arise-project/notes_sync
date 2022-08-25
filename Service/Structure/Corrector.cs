@@ -6,10 +6,10 @@ using notes_sync.Config;
 
 namespace notes_sync.Services.Structure
 {
-    public class NoteStructureChecker : INoteStructureChecker
+    public class Corrector : ICorrector
     {
         AppConfig conf;
-        public NoteStructureChecker(IOptions<AppConfig> conf)
+        public Corrector(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

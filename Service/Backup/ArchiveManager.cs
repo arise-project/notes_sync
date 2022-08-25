@@ -1,14 +1,15 @@
 using notes_sync.Services.Backup.Interface;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Backup
 {
     public class ArchiveManager : IArchiveManager
     {
-        readonly IAppConfig conf;
-        public ArchiveManager(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public ArchiveManager(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

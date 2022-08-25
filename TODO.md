@@ -1,6 +1,9 @@
 --------------------
 [barcode types](https://scanbot.io/blog/types-of-barcodes/)
 --------------------
+arangodb 123QWEasd
+use as decision chache
+--------------------
 folder_research.txt should be on parent folder of a folder, find and place it in SD
 --------------------
 folder_research.txt is also copy ? | > sections from folder notes

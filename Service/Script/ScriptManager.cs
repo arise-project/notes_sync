@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using notes_sync.Services.Script.Interface;
 using notes_sync.Config;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
 using Microsoft.Extensions.Options;
 
 namespace notes_sync.Services.Script
@@ -13,9 +12,9 @@ namespace notes_sync.Services.Script
     {
         readonly ProcessRunner pr;
 
-        readonly IAppConfig conf;
+        readonly AppConfig conf;
 
-        public ScriptManager(IOptions<IAppConfig> conf, ProcessRunner pr)
+        public ScriptManager(IOptions<AppConfig> conf, ProcessRunner pr)
         {
             this.conf = conf.Value;
             this.pr = pr;

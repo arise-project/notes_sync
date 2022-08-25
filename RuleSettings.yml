@@ -1,0 +1,4 @@
+text-note-pattern:
+  patterns: 
+    - '*.txt'
+    - '*.md'

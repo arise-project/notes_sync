@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using notes_sync.Services.Sd.Interface;
 using notes_sync.Services.Script;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Sd
 {
     public class CapacityManager : ICapacityManager
     {
-        readonly IAppConfig conf;
+        readonly AppConfig conf;
         readonly ProcessRunner pr;
         readonly ScriptManager sm;
 
-        public CapacityManager(IOptions<IAppConfig> conf, ProcessRunner pr, ScriptManager sm)
+        public CapacityManager(IOptions<AppConfig> conf, ProcessRunner pr, ScriptManager sm)
         {
             this.conf = conf.Value;
             this.pr = pr;
@@ -36,7 +37,7 @@ namespace notes_sync.Services.Sd
 
             ///dev/sdc1               1881M 1819M       63M      97% /media/galliumos/182E-D5FE
 
-            return csv.Where(l => l.Skip(5).FirstOrDefault()?.IndexOf(ac.MountPointRoot) == 0)
+            return csv.Where(l => l.Skip(5).FirstOrDefault()?.IndexOf(conf.MountPointRoot) == 0)
                 .Select(l => new SdCapacity
                 {
                     Sd = sfs.Find(sf => sf.Root == l.Skip(5).First()),

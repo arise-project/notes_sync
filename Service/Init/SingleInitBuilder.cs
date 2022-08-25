@@ -1,15 +1,16 @@
 using notes_sync.Services.Init.Interface;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Init
 {
     public class SingleInitBuilder : ISingleInitBuilder
     {
 
-        readonly IAppConfig conf;
-        public SingleInitBuilder(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public SingleInitBuilder(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

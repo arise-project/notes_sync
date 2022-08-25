@@ -1,16 +1,19 @@
 using Microsoft.Extensions.Options;
-using notes_sync.Config.Interface;
+using notes_sync.Config;
 using notes_sync.Unit.Interface;
 
 namespace notes_sync.Unit
 {
-    public class WrapNotesUnit : IUnit<WrapNotes>
+    public class WrapNotesUnit : IUnit
     {
-        IAppConfig conf;
-        public WrapNotesUnit(IOptions<IAppConfig> conf)
+        AppConfig conf;
+
+        public WrapNotesUnit(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }
+
+        public UnitType UnitType {get;} = UnitType.WrapNotes;
 
         public bool Run(string[] args)
         {

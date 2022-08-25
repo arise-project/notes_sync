@@ -3,16 +3,17 @@ using notes_sync.Services.Init.Interface;
 using notes_sync.Services.Sd;
 using notes_sync.Services.Script;
 using notes_sync.Model;
-using notes_sync.Config.Interface;
+
 using Microsoft.Extensions.Options;
+using notes_sync.Config;
 
 namespace notes_sync.Services.Init
 {
     public class InitManager
     {
         readonly ScriptManager scr;
-        readonly IAppConfig conf;
-        public InitManager(IOptions<IAppConfig> conf)
+        readonly AppConfig conf;
+        public InitManager(IOptions<AppConfig> conf)
         {
             this.conf = conf.Value;
         }

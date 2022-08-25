@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,19 +25,18 @@ using notes_sync.Unit.Interface;
 using System;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
+
 
 namespace notes_sync
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration) => Configuration = configuration;
-
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
+        public static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<AppConfig>(Configuration.GetSection("AppConfig"));
+            services.Configure<AppConfig>(ctx.Configuration.GetSection("AppConfig"));
 
             //Services DI
             services.AddSingleton<IInitBuilder, InitBuilder>();
@@ -85,17 +82,29 @@ namespace notes_sync
             services.AddSingleton<IStructureSearcher, StructureSearcher>();
 
             //Units DI
-            services.AddSingleton<IUnit<WrapNotes>, WrapNotesUnit>();
-            services.AddSingleton<IUnit<SensitiveFile>, SensitiveFileUnit>();
-            services.AddSingleton<IUnit<RenameFiles>, RenameFilesUnit>();
-            services.AddSingleton<IUnit<DefaultPackage>, DefaultPackageUnit>();
-
+            var unitType = UnitType.RenameFiles;
+            switch (unitType)
+            {
+                case UnitType.WrapNotes:
+                    services.AddSingleton<IUnit, WrapNotesUnit>();
+                    break;
+                case UnitType.SensitiveFile:
+                    services.AddSingleton<IUnit, SensitiveFileUnit>();
+                    break;
+                case UnitType.RenameFiles:
+                    services.AddSingleton<IUnit, RenameFilesUnit>();
+                    break;
+                case UnitType.DefaultPackage:                
+                    services.AddSingleton<IUnit, DefaultPackageUnit>();
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            
             services.AddSingleton((f) => BuildSettings());
         }
 
-        public void Configure(
-            IApplicationBuilder app,
-            IWebHostEnvironment env,
+        public static void Run(
             IServiceProvider provider)
         {
             //PZRK Perun
@@ -103,19 +112,21 @@ namespace notes_sync
             //Igla
             Console.WriteLine("Notes Sync");
 
-            //AppConfig appConfig = provider.GetService<IOptions<AppConfig>>().Value;
+            AppConfig appConfig = provider.GetService<IOptions<AppConfig>>().Value;
             Console.WriteLine("==================================");
             Console.WriteLine("App Config:");
-            //Console.WriteLine(JsonConvert.SerializeObject(appConfig));
+            Console.WriteLine(JsonConvert.SerializeObject(appConfig));
             Console.WriteLine("==================================");
-            provider.GetService<IDefaultPackageUnit>().Run(args);
-
+            string [] args = null;
+            var s = provider.GetService<Settings>();
+            
             //NYT
+            provider.GetService<IUnit>().Run(args);
             //new RenameFilesUnit().Run(args);
             //new DefaultPackageUnit().Run(args);            
         }
 
-        public Settings BuildSettings()
+        private static Settings BuildSettings()
         {
             string text = System.IO.File.ReadAllText("RuleSettings.yml");
 
