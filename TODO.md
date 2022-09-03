@@ -90,3 +90,11 @@ example of first release
 The basic functionality is implemented, tested and documented:
 
 ------------------
+possible document processing tools:
+
+[Captain Stack — Code suggestion for VSCode](https://github.com/hieunc229/copilot-clone)
+[YouCompleteMe: a code-completion engine for Vim](https://github.com/ycm-core/YouCompleteMe)
+[YouCompleteMe: a code-completion engine for Vim](https://github.com/ycm-core/YouCompleteMe)
+[Second Mate Emax](https://github.com/samrawal/emacs-secondmate)
+[Code Clippy — Inline code suggestions from your friendly neighborhood hacker Clippy for VSCode](https://github.com/CodedotAl/code-clippy-vscode)(https://github.com/CodedotAl/gpt-code-clippy)(https://github.com/CodedotAl/code-clippy-vscode)
+-------------------
